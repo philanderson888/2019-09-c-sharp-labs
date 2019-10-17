@@ -1,0 +1,15 @@
+﻿@page
+@model NorthwindRunSQLQueryDirectly.Pages.Northwind02Model
+@{
+    ViewData["Title"] = "Northwind02";
+}
+
+<h2>Northwind02</h2>
+
+<ul>
+    @foreach (var customer in Northwind02Model.customers)
+    {
+        <li>@customer.CustomerID</li>
+    }
+</ul>
+

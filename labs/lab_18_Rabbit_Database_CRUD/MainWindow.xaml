@@ -1,0 +1,35 @@
+﻿<Window x:Class="lab_18_Rabbit_Database_CRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_18_Rabbit_Database_CRUD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto" FontSize="25" KeyDown="DoThis">
+    <Grid Background="#B5EBE5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="labelHeading" Content="Rabbit App" Grid.Column="1" Grid.Row="0" 
+               Grid.ColumnSpan="2" Background="#76C3E8" HorizontalAlignment="Center" HorizontalContentAlignment="Center" 
+             FontSize="35" FontWeight="Bold" />
+        <ListBox x:Name="ListBoxRabbits" Grid.Row="3" Grid.Column="0"  Background="#B3C6ED" 
+                 SelectionChanged="ListBoxRabbits_SelectionChanged"
+                  />
+        <TextBox x:Name="TextBoxName" Grid.Row="2" Grid.Column="2" Background="#D3E9ED" />
+        <TextBox x:Name="TextBoxAge" Grid.Row="2" Grid.Column="3" Background="#D3E9ED" />
+        <Button x:Name="ButtonAdd" Grid.Row="1" Grid.Column="1" Background="#B3C6ED" Content="Add" 
+                Click="ButtonAdd_Click" />
+        <Button x:Name="ButtonEdit" Grid.Row="1" Grid.Column="2" Background="#B3C6ED" Content="Edit" Click="ButtonEdit_Click" />
+        <Button x:Name="ButtonDelete" Grid.Row="1" Grid.Column="3" Background="#B3C6ED" Content="Delete" Click="ButtonDelete_Click" />
+    </Grid>
+</Window>

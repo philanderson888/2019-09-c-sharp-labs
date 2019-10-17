@@ -1,0 +1,86 @@
+﻿<Window x:Class="lab_24_Customers_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_24_Customers_App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto" FontSize="18">
+    <Grid Background="#E6EEFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="LabelTitle"
+               Background="#E6EEdd" Grid.Column="1" Grid.ColumnSpan="3" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontWeight="Bold">
+            <TextBlock TextDecorations="Underline">Customer App</TextBlock>
+        </Label>
+
+        <StackPanel x:Name="StackPanel02" Grid.Row="1" Grid.RowSpan="3" Grid.Column="1"
+                    Grid.ColumnSpan="3" Background="#FFFEE6">
+            <Label x:Name="StackPanel01Label02" Content="StackPanel02" Background="#EFE6FF" 
+                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <ListBox x:Name="ListBoxCustomers02" />
+        </StackPanel>
+        <StackPanel x:Name="StackPanel03" Grid.Row="1" Grid.RowSpan="3" Grid.Column="1"
+                    Grid.ColumnSpan="3" Background="#FFFEE6">
+            <Label x:Name="StackPanel01Label03" Content="StackPanel03" Background="#EFE6FF" 
+                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" 
+                   />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <Button Content="button" />
+            <ListBox x:Name="ListBoxCustomers03" />
+        </StackPanel>
+        <StackPanel x:Name="StackPanel01" Grid.Row="1" Grid.RowSpan="3" Grid.Column="1"
+                    Grid.ColumnSpan="3" Background="#FFFEE6" >
+            <Label x:Name="StackPanel01Label01" Content="StackPanel01" Background="#EFE6FF" 
+                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+            <Button x:Name="CustomerNameFilter" Content="Search By Customer Name"
+                     HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+            <TextBox x:Name="CustomerSearch" 
+                      HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                     KeyUp="CustomerSearch_KeyUp" TextChanged="CustomerSearch_TextChanged"/>
+            <ListBox x:Name="ListBoxCustomers" 
+                      HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" 
+                     SelectionChanged="ListBoxCustomers_SelectionChanged" MouseDoubleClick="ViewOrders" 
+                     FontFamily="Courier New" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat=" {0,-10}  {1,-20} {2} ">
+                                    <Binding Path="CustomerID" />
+                                    <Binding Path="ContactName" />
+                                    <Binding Path="City" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Button x:Name="ButtonBack" Content="Back" Background="#D1E2E8" Grid.Row="4" Grid.Column="1" Click="ButtonBack_Click"/>
+        <Button x:Name="ButtonForward" Content="Forward" Background="#D1E2E8" Grid.Row="4" Grid.Column="3" 
+                Click="ButtonForward_Click" />
+    </Grid>
+</Window>
