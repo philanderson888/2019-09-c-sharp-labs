@@ -26,22 +26,22 @@ namespace lab_49_MVC_core_users_categories_todoitems
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ToDoItemModel>
-            //    (options => options.UseSqlServer
-            //     (@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ToDoItemsDatabase;
-            //        Integrated Security=true;MultipleActiveResultSets=true"));
-
-
-#if DEBUG 
-             var connectionString = Environment.GetEnvironmentVariable("AzureConnectionString01");
-#else
-             var connectionString = Environment.GetEnvironmentVariable("APPSETTING_AzureConnectionString");
-#endif
-
-
-
             services.AddDbContext<ToDoItemModel>
-            (options => options.UseSqlServer(connectionString));
+                (options => options.UseSqlServer
+                 (@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ToDoItemsDatabase;
+                    Integrated Security=true;MultipleActiveResultSets=true"));
+
+
+//#if DEBUG
+//            var connectionString = Environment.GetEnvironmentVariable("AzureConnectionString01");
+//#else
+//             var connectionString = Environment.GetEnvironmentVariable("APPSETTING_AzureConnectionString");
+//#endif
+
+
+
+//            services.AddDbContext<ToDoItemModel>
+//            (options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
